@@ -11,13 +11,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class Problem2LargestPrimeFactorSolverTest {
+public class Problem3LargestPrimeFactorSolverTest {
 
     @Test
     public void endToEndSolvedProblem() {
         System.setOut(mock(PrintStream.class));
         String[] params = {"600851475143"};
-        Problem2LargestPrimeFactorSolver.main(params);
+        Problem3LargestPrimeFactorSolver.main(params);
         verify(System.out).println(6857L);
     }
 
@@ -31,7 +31,7 @@ public class Problem2LargestPrimeFactorSolverTest {
         Filter factorFilter = mock(Filter.class);
         when(filterFactory.buildFactorOfFilter(100L)).thenReturn(factorFilter);
         when(primesSequence.findFirst(factorFilter)).thenReturn(4321L);
-        Problem2LargestPrimeFactorSolver sut = new Problem2LargestPrimeFactorSolver(sequenceFactory, filterFactory);
+        Problem3LargestPrimeFactorSolver sut = new Problem3LargestPrimeFactorSolver(sequenceFactory, filterFactory);
         assertThat(sut.solve(100L), is(equalTo(4321L)));
     }
 }

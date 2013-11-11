@@ -19,6 +19,19 @@ public class GeneratorBackedSequence implements Sequence {
         throw new NoMatchFoundException();
     }
 
+    @Override
+    public long sumAll(Filter filter) {
+        long sum = 0;
+        for (long l: generator)
+        {
+            if (filter.matches(l))
+            {
+                sum+=l;
+            }
+        }
+        return sum;
+    }
+
     public NumberGenerator getGenerator() {
         return generator;
     }

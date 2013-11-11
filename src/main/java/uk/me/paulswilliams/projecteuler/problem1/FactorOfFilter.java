@@ -12,7 +12,7 @@ public class FactorOfFilter implements Filter {
     }
 
     @Override
-    public boolean matches(long comparedTo) {
-        return (factorOf % comparedTo == 0);
+    public boolean matches(long value) {
+        return (factorOf % value == 0);
     }
 }

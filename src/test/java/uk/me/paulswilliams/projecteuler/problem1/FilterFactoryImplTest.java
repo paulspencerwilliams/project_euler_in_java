@@ -14,4 +14,11 @@ public class FilterFactoryImplTest {
         assertThat(actual, is(instanceOf(FactorOfFilter.class)));
         assertThat(actual.getFactorOf(), is(equalTo(123L)));
     }
+
+    @Test
+    public void testBuildEvenFilterReturnsAnEvenFilter() {
+        Filter actual = new FilterFactoryImpl().buildEvenFilter();
+        assertThat(actual, is(instanceOf(EvenFilter.class)));
+    }
+
 }

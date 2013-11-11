@@ -30,8 +30,7 @@ public class GeneratorBackedSequenceTest {
     }
 
     @Test
-    public void testCanReturnMatchingFirstNumber() {
-
+    public void testFindFirstCanReturnMatchingFirstNumber() {
         when(filter.matches(1L)).thenReturn(true);
         assertThat(sut.findFirst(filter), is(equalTo(1L)));
     }
@@ -39,16 +38,29 @@ public class GeneratorBackedSequenceTest {
 
 
     @Test
-    public void testCanReturnMatchingSecondNumber() throws Exception {
+    public void testFindFirstCanReturnMatchingSecondNumber() {
         when(filter.matches(1L)).thenReturn(false);
         when(filter.matches(2L)).thenReturn(true);
         assertThat(sut.findFirst(filter), is(equalTo(2L)));
     }
 
     @Test(expected=NoMatchFoundException.class)
-    public void testExceptionIsThrownForNoMatch ()
+    public void testFindFirstThrowsExceptionWhenNoMatchIsFound()
     {
         sut.findFirst(filter);
+    }
+
+    @Test
+    public void testSumAllCanSumAllEntries() {
+        when(filter.matches(anyLong())).thenReturn(true);
+        assertThat(sut.sumAll(filter), is(equalTo(6L)));
+    }
+
+    @Test
+    public void testSumAllOnlyAddsMatches() throws Exception {
+        when(filter.matches(1L)).thenReturn(false);
+        when(filter.matches(2L)).thenReturn(true);
+        assertThat(sut.sumAll(filter), is(equalTo(2L)));
     }
 
 }

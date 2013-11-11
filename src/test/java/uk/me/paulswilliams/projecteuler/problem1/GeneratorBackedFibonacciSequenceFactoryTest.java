@@ -7,7 +7,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class GeneratorBackedPrimesSequenceFactoryTest {
+public class GeneratorBackedFibonacciSequenceFactoryTest {
     @Test
     public void testReturnsAGeneratorBackedSequence() {
         Sequence actual = getSequence();
@@ -15,17 +15,15 @@ public class GeneratorBackedPrimesSequenceFactoryTest {
     }
 
     @Test
-    public void testReturnedSequenceHasAPrimesGeneratorWithSpecifiedStartsAt ()
+    public void testReturnedSequenceHasAFibonacciGeneratorWithSpecifiedStartsAt ()
     {
         GeneratorBackedSequence actual = (GeneratorBackedSequence) getSequence();
-        PrimesNumberGenerator generator = (PrimesNumberGenerator) actual.getGenerator();
-        assertThat(generator, is(instanceOf(PrimesNumberGenerator.class)));
-        assertThat((generator).getStartsAt(), is(equalTo(123L)));
+        FibonacciGenerator generator = (FibonacciGenerator) actual.getGenerator();
+        assertThat(generator, is(instanceOf(FibonacciGenerator.class)));
+        assertThat((generator).getStopsAt(), is(equalTo(123L)));
     }
 
     private Sequence getSequence() {
-        return new GeneratorBackedPrimesSequenceFactory().buildDecreasingPrimesSequence(123);
+        return new GeneratorBackedFibonacciSequenceFactory().buildIncreasingFibonacciSequenceStoppingAt(123);
     }
-
-
 }

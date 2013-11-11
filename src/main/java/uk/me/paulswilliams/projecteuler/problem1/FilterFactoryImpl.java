@@ -5,4 +5,9 @@ public class FilterFactoryImpl implements FilterFactory {
     public Filter buildFactorOfFilter(long factorOf) {
         return new FactorOfFilter(factorOf);
     }
+
+    @Override
+    public Filter buildEvenFilter() {
+        return new EvenFilter();
+    }
 }
