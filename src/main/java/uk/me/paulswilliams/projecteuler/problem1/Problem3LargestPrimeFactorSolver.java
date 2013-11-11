@@ -1,5 +1,10 @@
 package uk.me.paulswilliams.projecteuler.problem1;
 
+import uk.me.paulswilliams.projecteuler.problem1.filters.FilterFactory;
+import uk.me.paulswilliams.projecteuler.problem1.filters.FilterFactoryImpl;
+import uk.me.paulswilliams.projecteuler.problem1.sequences.GeneratorBackedPrimesSequenceFactory;
+import uk.me.paulswilliams.projecteuler.problem1.sequences.PrimesSequenceFactory;
+
 public class Problem3LargestPrimeFactorSolver {
     private final PrimesSequenceFactory primesSequenceFactory;
     private final FilterFactory filterFactory;

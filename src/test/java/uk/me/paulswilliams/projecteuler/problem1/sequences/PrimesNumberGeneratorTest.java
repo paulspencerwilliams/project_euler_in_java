@@ -1,6 +1,7 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.sequences;
 
 import org.junit.Test;
+import uk.me.paulswilliams.projecteuler.problem1.sequences.PrimesNumberGenerator;
 
 import java.util.ArrayList;
 

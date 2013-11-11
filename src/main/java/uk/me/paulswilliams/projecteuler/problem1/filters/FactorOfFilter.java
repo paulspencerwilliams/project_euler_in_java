@@ -1,4 +1,6 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.filters;
+
+import uk.me.paulswilliams.projecteuler.problem1.Filter;
 
 public class FactorOfFilter implements Filter {
     private long factorOf;

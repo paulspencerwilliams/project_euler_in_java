@@ -1,4 +1,8 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.sequences;
+
+import uk.me.paulswilliams.projecteuler.problem1.Filter;
+import uk.me.paulswilliams.projecteuler.problem1.NoMatchFoundException;
+import uk.me.paulswilliams.projecteuler.problem1.Sequence;
 
 public class GeneratorBackedSequence implements Sequence {
     private NumberGenerator generator;

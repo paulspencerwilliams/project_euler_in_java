@@ -1,6 +1,7 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.filters;
 
 import org.junit.Test;
+import uk.me.paulswilliams.projecteuler.problem1.filters.EvenFilter;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

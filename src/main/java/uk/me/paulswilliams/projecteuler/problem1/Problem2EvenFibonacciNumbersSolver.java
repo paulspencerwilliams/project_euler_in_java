@@ -1,6 +1,11 @@
 package uk.me.paulswilliams.projecteuler.problem1;
 
 
+import uk.me.paulswilliams.projecteuler.problem1.filters.FilterFactory;
+import uk.me.paulswilliams.projecteuler.problem1.filters.FilterFactoryImpl;
+import uk.me.paulswilliams.projecteuler.problem1.sequences.FibonacciSequenceFactory;
+import uk.me.paulswilliams.projecteuler.problem1.sequences.GeneratorBackedFibonacciSequenceFactory;
+
 public class Problem2EvenFibonacciNumbersSolver
 {
 

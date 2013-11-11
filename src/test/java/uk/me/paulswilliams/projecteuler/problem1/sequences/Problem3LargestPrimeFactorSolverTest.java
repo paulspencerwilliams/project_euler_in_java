@@ -1,6 +1,10 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.sequences;
 
 import org.junit.Test;
+import uk.me.paulswilliams.projecteuler.problem1.Filter;
+import uk.me.paulswilliams.projecteuler.problem1.filters.FilterFactory;
+import uk.me.paulswilliams.projecteuler.problem1.Problem3LargestPrimeFactorSolver;
+import uk.me.paulswilliams.projecteuler.problem1.Sequence;
 
 import java.io.PrintStream;
 

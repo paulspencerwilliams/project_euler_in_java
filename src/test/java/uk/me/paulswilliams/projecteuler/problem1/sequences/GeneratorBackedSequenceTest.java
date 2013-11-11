@@ -1,7 +1,11 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.sequences;
 
 import org.junit.Before;
 import org.junit.Test;
+import uk.me.paulswilliams.projecteuler.problem1.Filter;
+import uk.me.paulswilliams.projecteuler.problem1.NoMatchFoundException;
+import uk.me.paulswilliams.projecteuler.problem1.sequences.GeneratorBackedSequence;
+import uk.me.paulswilliams.projecteuler.problem1.sequences.NumberGenerator;
 
 import java.util.Iterator;
 

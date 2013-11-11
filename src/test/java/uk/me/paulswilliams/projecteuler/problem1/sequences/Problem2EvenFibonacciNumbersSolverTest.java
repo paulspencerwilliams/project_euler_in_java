@@ -1,9 +1,12 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.sequences;
 
 import org.junit.Test;
+import uk.me.paulswilliams.projecteuler.problem1.Filter;
+import uk.me.paulswilliams.projecteuler.problem1.filters.FilterFactory;
+import uk.me.paulswilliams.projecteuler.problem1.Problem2EvenFibonacciNumbersSolver;
+import uk.me.paulswilliams.projecteuler.problem1.Sequence;
 
 import java.io.PrintStream;
-import java.util.Iterator;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;

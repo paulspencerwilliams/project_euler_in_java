@@ -1,6 +1,10 @@
-package uk.me.paulswilliams.projecteuler.problem1;
+package uk.me.paulswilliams.projecteuler.problem1.filters;
 
 import org.junit.Test;
+import uk.me.paulswilliams.projecteuler.problem1.Filter;
+import uk.me.paulswilliams.projecteuler.problem1.filters.EvenFilter;
+import uk.me.paulswilliams.projecteuler.problem1.filters.FactorOfFilter;
+import uk.me.paulswilliams.projecteuler.problem1.filters.FilterFactoryImpl;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
