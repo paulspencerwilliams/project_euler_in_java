@@ -81,8 +81,6 @@ public class PrimesNumberGenerator implements NumberGenerator {
             return true;
         }
 
-
-
         @Override
         public void remove() {
 
