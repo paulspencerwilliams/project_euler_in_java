@@ -1,4 +1,4 @@
-package uk.me.paulswilliams.projecteuler;
+package uk.me.paulswilliams.projecteuler.filters;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
