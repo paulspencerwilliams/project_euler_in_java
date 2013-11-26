@@ -3,7 +3,7 @@ package uk.me.paulswilliams.projecteuler.sequences.generators;
 import java.util.Iterator;
 
 public class PrimesNumberGenerator implements NumberGenerator {
-    private long startsAt;
+    private final long startsAt;
 
     public PrimesNumberGenerator(long startsAt) {
         this.startsAt = startsAt;

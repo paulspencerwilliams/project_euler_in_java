@@ -15,7 +15,6 @@ import java.io.PrintStream;
 
 public class Problem1MultiplesOf3And5Test {
 
-	private Problem1MultiplesOf3And5Solver sut;
 
     @Test
     public void sumReturnsSumOfEvenValuesInSequence ()

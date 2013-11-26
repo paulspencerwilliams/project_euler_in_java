@@ -6,7 +6,7 @@ import uk.me.paulswilliams.projecteuler.Sequence;
 import uk.me.paulswilliams.projecteuler.sequences.generators.NumberGenerator;
 
 public class GeneratorBackedSequence implements Sequence {
-    private NumberGenerator generator;
+    private final NumberGenerator generator;
 
     public GeneratorBackedSequence(NumberGenerator generator) {
         this.generator = generator;
