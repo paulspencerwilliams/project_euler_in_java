@@ -1,32 +1,28 @@
 package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 
-import uk.me.paulswilliams.projecteuler.Filter;
-import uk.me.paulswilliams.projecteuler.filters.MultipleOfThreeAndFiveFilter;
+import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
+import uk.me.paulswilliams.projecteuler.filters.FilterFactoryImpl;
+import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedFibonacciSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedWholeNumberSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.WholeNumberSequenceFactory;
 
 public class Problem1MultiplesOf3And5Solver {
 
-	private Filter filter;
+    private final WholeNumberSequenceFactory sequenceFactory;
+    private final FilterFactory filterFactory;
 
-	public Problem1MultiplesOf3And5Solver(Filter filter) {
-		this.filter = filter;
+    public Problem1MultiplesOf3And5Solver(WholeNumberSequenceFactory sequenceFactory, FilterFactory filterFactory) {
+
+        this.sequenceFactory = sequenceFactory;
+        this.filterFactory = filterFactory;
+    }
+
+    public static void main(String[] args) {
+        Problem1MultiplesOf3And5Solver problemSolver = new Problem1MultiplesOf3And5Solver(new GeneratorBackedWholeNumberSequenceFactory(), new FilterFactoryImpl());
+        System.out.println(problemSolver.solve(Long.parseLong(args[0])));
 	}
 
-	public static void main(String[] args) {
-		Filter multipleOfThreeAndFiveFilter = new MultipleOfThreeAndFiveFilter();
-		int result = new Problem1MultiplesOf3And5Solver(multipleOfThreeAndFiveFilter).sumMultiplesOfThreeAndFiveBelow(1000);
-		System.out.println(String.valueOf(result));
-	}
-
-	public int sumMultiplesOfThreeAndFiveBelow(int maximum) {
-		int result = 0;
-		for (int i = 0; i< maximum; i++)
-		{
-			if (filter.matches(i))
-			{
-				result+=i;
-			}
-		}
-		return result;
-	}
-
+    public long solve(long below) {
+        return sequenceFactory.buildIncreasingWholeNumbersBelow(below).sumAll(filterFactory.buildMultipleOf3And5Filter());
+    }
 }
