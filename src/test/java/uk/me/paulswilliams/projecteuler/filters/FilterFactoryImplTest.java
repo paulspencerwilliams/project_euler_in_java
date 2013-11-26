@@ -22,4 +22,10 @@ public class FilterFactoryImplTest {
         assertThat(actual, is(instanceOf(EvenFilter.class)));
     }
 
+    @Test
+    public void testBuildMultipleOf3And5FilterReturnsAnEvenFilter() {
+        Filter actual = new FilterFactoryImpl().buildMultipleOf3And5Filter();
+        assertThat(actual, is(instanceOf(MultipleOfThreeAndFiveFilter.class)));
+    }
+
 }

@@ -13,4 +13,9 @@ public class FilterFactoryImpl implements FilterFactory {
     public Filter buildEvenFilter() {
         return new EvenFilter();
     }
+
+    @Override
+    public Filter buildMultipleOf3And5Filter() {
+        return new MultipleOfThreeAndFiveFilter();
+    }
 }
