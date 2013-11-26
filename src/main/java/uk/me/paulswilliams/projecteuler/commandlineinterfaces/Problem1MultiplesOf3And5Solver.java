@@ -2,9 +2,8 @@ package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 
 import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
 import uk.me.paulswilliams.projecteuler.filters.FilterFactoryImpl;
-import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedFibonacciSequenceFactory;
-import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedWholeNumberSequenceFactory;
-import uk.me.paulswilliams.projecteuler.sequences.WholeNumberSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.GeneratorBackedWholeNumberSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.WholeNumberSequenceFactory;
 
 public class Problem1MultiplesOf3And5Solver {
 

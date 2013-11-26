@@ -4,8 +4,8 @@ package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 import uk.me.paulswilliams.projecteuler.Sequence;
 import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
 import uk.me.paulswilliams.projecteuler.filters.FilterFactoryImpl;
-import uk.me.paulswilliams.projecteuler.sequences.FibonacciSequenceFactory;
-import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedFibonacciSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.FibonacciSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.GeneratorBackedFibonacciSequenceFactory;
 
 public class Problem2EvenFibonacciNumbersSolver
 {

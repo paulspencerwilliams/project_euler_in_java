@@ -1,7 +1,10 @@
-package uk.me.paulswilliams.projecteuler.sequences;
+package uk.me.paulswilliams.projecteuler.sequences.factories;
 
 import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Sequence;
+import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedSequence;
+import uk.me.paulswilliams.projecteuler.sequences.factories.GeneratorBackedFibonacciSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.generators.FibonacciGenerator;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;

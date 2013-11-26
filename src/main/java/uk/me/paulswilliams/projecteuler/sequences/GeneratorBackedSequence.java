@@ -3,6 +3,7 @@ package uk.me.paulswilliams.projecteuler.sequences;
 import uk.me.paulswilliams.projecteuler.Filter;
 import uk.me.paulswilliams.projecteuler.NoMatchFoundException;
 import uk.me.paulswilliams.projecteuler.Sequence;
+import uk.me.paulswilliams.projecteuler.sequences.generators.NumberGenerator;
 
 public class GeneratorBackedSequence implements Sequence {
     private NumberGenerator generator;

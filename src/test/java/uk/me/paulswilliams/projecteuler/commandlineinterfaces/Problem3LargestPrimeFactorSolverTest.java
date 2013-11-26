@@ -4,7 +4,7 @@ import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Filter;
 import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
 import uk.me.paulswilliams.projecteuler.Sequence;
-import uk.me.paulswilliams.projecteuler.sequences.PrimesSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.PrimesSequenceFactory;
 
 import java.io.PrintStream;
 

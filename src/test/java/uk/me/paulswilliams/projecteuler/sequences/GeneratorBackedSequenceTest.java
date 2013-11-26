@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Filter;
 import uk.me.paulswilliams.projecteuler.NoMatchFoundException;
+import uk.me.paulswilliams.projecteuler.sequences.generators.NumberGenerator;
 
 import java.util.Iterator;
 

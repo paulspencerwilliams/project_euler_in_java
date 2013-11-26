@@ -1,4 +1,4 @@
-package uk.me.paulswilliams.projecteuler.sequences;
+package uk.me.paulswilliams.projecteuler.sequences.generators;
 
 import java.util.Iterator;
 

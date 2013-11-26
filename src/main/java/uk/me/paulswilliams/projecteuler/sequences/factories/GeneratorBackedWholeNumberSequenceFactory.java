@@ -1,6 +1,8 @@
-package uk.me.paulswilliams.projecteuler.sequences;
+package uk.me.paulswilliams.projecteuler.sequences.factories;
 
 import uk.me.paulswilliams.projecteuler.Sequence;
+import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedSequence;
+import uk.me.paulswilliams.projecteuler.sequences.generators.WholeNumberGenerator;
 
 public class GeneratorBackedWholeNumberSequenceFactory implements WholeNumberSequenceFactory {
 

@@ -3,8 +3,8 @@ package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 import uk.me.paulswilliams.projecteuler.Sequence;
 import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
 import uk.me.paulswilliams.projecteuler.filters.FilterFactoryImpl;
-import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedPrimesSequenceFactory;
-import uk.me.paulswilliams.projecteuler.sequences.PrimesSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.GeneratorBackedPrimesSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.PrimesSequenceFactory;
 
 public class Problem3LargestPrimeFactorSolver {
     private final PrimesSequenceFactory primesSequenceFactory;

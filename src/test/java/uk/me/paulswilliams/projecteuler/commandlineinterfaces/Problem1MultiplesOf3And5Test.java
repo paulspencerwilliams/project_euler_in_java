@@ -9,8 +9,7 @@ import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Filter;
 import uk.me.paulswilliams.projecteuler.Sequence;
 import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
-import uk.me.paulswilliams.projecteuler.filters.MultipleOfThreeAndFiveFilter;
-import uk.me.paulswilliams.projecteuler.sequences.WholeNumberSequenceFactory;
+import uk.me.paulswilliams.projecteuler.sequences.factories.WholeNumberSequenceFactory;
 
 import java.io.PrintStream;
 
