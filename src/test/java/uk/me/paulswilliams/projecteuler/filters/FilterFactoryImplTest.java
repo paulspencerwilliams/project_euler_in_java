@@ -28,4 +28,10 @@ public class FilterFactoryImplTest {
         assertThat(actual, is(instanceOf(MultipleOfThreeAndFiveFilter.class)));
     }
 
+    @Test
+    public void testBuildPalindromesFilter() {
+        Filter actual = new FilterFactoryImpl().buildPalindromesFilter();
+        assertThat(actual, is(instanceOf(PalindromeFilter.class)));
+    }
+
 }

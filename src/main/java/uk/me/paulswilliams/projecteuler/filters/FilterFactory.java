@@ -8,4 +8,6 @@ public interface FilterFactory {
     Filter buildEvenFilter();
 
     Filter buildMultipleOf3And5Filter();
+
+    Filter buildPalindromesFilter();
 }

@@ -18,4 +18,10 @@ public class FilterFactoryImpl implements FilterFactory {
     public Filter buildMultipleOf3And5Filter() {
         return new MultipleOfThreeAndFiveFilter();
     }
+
+    @Override
+    public Filter buildPalindromesFilter() {
+        return new PalindromeFilter();
+    }
+
 }
