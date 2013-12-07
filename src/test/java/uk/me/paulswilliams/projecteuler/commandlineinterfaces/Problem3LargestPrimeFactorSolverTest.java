@@ -2,7 +2,6 @@ package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 
 import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Filter;
-import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
 import uk.me.paulswilliams.projecteuler.Sequence;
 import uk.me.paulswilliams.projecteuler.sequences.factories.PrimesSequenceFactory;
 
@@ -28,14 +27,10 @@ public class Problem3LargestPrimeFactorSolverTest {
     @Test
     public void testDelegatesToPrimeSequenceWithSquareRootOfParamAndFactorFilter ()
     {
-        PrimesSequenceFactory sequenceFactory = mock(PrimesSequenceFactory.class);
-        FilterFactory filterFactory = mock(FilterFactory.class);
         Sequence primesSequence = mock(Sequence.class);
-        when(sequenceFactory.buildDecreasingPrimesSequence(10L)).thenReturn(primesSequence);
         Filter factorFilter = mock(Filter.class);
-        when(filterFactory.buildFactorOfFilter(100L)).thenReturn(factorFilter);
         when(primesSequence.findFirst(factorFilter)).thenReturn(4321L);
-        Problem3LargestPrimeFactorSolver sut = new Problem3LargestPrimeFactorSolver(sequenceFactory, filterFactory);
+        Problem3LargestPrimeFactorSolver sut = new Problem3LargestPrimeFactorSolver(primesSequence, factorFilter);
         assertThat(sut.solve(100L), is(equalTo(4321L)));
     }
 }

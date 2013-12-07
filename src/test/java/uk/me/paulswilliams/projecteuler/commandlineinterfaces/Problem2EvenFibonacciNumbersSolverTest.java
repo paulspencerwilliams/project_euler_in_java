@@ -2,7 +2,6 @@ package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 
 import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Filter;
-import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
 import uk.me.paulswilliams.projecteuler.Sequence;
 import uk.me.paulswilliams.projecteuler.sequences.factories.FibonacciSequenceFactory;
 
@@ -29,14 +28,10 @@ public class Problem2EvenFibonacciNumbersSolverTest
     @Test
     public void sumReturnsSumOfEvenValuesInSequence ()
     {
-        FibonacciSequenceFactory sequenceFactory = mock(FibonacciSequenceFactory.class);
-        FilterFactory filterFactory = mock(FilterFactory.class);
         Sequence fibonacciSequence = mock(Sequence.class);
-        when(sequenceFactory.buildIncreasingFibonacciSequenceStoppingAt(100L)).thenReturn(fibonacciSequence);
         Filter evenFilter= mock(Filter.class);
-        when(filterFactory.buildEvenFilter()).thenReturn(evenFilter);
         when(fibonacciSequence.sumAll(evenFilter)).thenReturn(4321L);
-        Problem2EvenFibonacciNumbersSolver sut = new Problem2EvenFibonacciNumbersSolver(sequenceFactory, filterFactory);
+        Problem2EvenFibonacciNumbersSolver sut = new Problem2EvenFibonacciNumbersSolver(fibonacciSequence, evenFilter);
         assertThat(sut.solve(100L), is(equalTo(4321L)));
     }
 

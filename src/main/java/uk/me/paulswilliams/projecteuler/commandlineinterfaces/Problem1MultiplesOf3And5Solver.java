@@ -1,27 +1,29 @@
 package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 
-import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
-import uk.me.paulswilliams.projecteuler.filters.FilterFactoryImpl;
-import uk.me.paulswilliams.projecteuler.sequences.factories.GeneratorBackedWholeNumberSequenceFactory;
-import uk.me.paulswilliams.projecteuler.sequences.factories.WholeNumberSequenceFactory;
+import uk.me.paulswilliams.projecteuler.Filter;
+import uk.me.paulswilliams.projecteuler.Sequence;
+import uk.me.paulswilliams.projecteuler.filters.MultipleOfThreeAndFiveFilter;
+import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedSequence;
+import uk.me.paulswilliams.projecteuler.sequences.generators.WholeNumberGenerator;
 
 public class Problem1MultiplesOf3And5Solver {
 
-    private final WholeNumberSequenceFactory sequenceFactory;
-    private final FilterFactory filterFactory;
+    private final Sequence sequence;
+    private final Filter filter;
 
-    public Problem1MultiplesOf3And5Solver(WholeNumberSequenceFactory sequenceFactory, FilterFactory filterFactory) {
-
-        this.sequenceFactory = sequenceFactory;
-        this.filterFactory = filterFactory;
+    public Problem1MultiplesOf3And5Solver(Sequence sequence, Filter filter) {
+        this.sequence = sequence;
+        this.filter = filter;
     }
 
     public static void main(String[] args) {
-        Problem1MultiplesOf3And5Solver problemSolver = new Problem1MultiplesOf3And5Solver(new GeneratorBackedWholeNumberSequenceFactory(), new FilterFactoryImpl());
-        System.out.println(problemSolver.solve(Long.parseLong(args[0])));
+        long below = Long.parseLong(args[0]);
+        Problem1MultiplesOf3And5Solver problemSolver = new Problem1MultiplesOf3And5Solver(new GeneratorBackedSequence(new WholeNumberGenerator(below)), new MultipleOfThreeAndFiveFilter());
+        System.out.println(problemSolver.solve(below));
 	}
 
     public long solve(long below) {
-        return sequenceFactory.buildIncreasingWholeNumbersBelow(below).sumAll(filterFactory.buildMultipleOf3And5Filter());
+
+        return sequence.sumAll(filter);
     }
 }

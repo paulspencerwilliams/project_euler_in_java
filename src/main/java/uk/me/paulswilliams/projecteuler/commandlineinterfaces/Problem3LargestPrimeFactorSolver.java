@@ -1,27 +1,27 @@
 package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 
+import uk.me.paulswilliams.projecteuler.Filter;
 import uk.me.paulswilliams.projecteuler.Sequence;
-import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
-import uk.me.paulswilliams.projecteuler.filters.FilterFactoryImpl;
-import uk.me.paulswilliams.projecteuler.sequences.factories.GeneratorBackedPrimesSequenceFactory;
-import uk.me.paulswilliams.projecteuler.sequences.factories.PrimesSequenceFactory;
+import uk.me.paulswilliams.projecteuler.filters.FactorOfFilter;
+import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedSequence;
+import uk.me.paulswilliams.projecteuler.sequences.generators.PrimesNumberGenerator;
 
 public class Problem3LargestPrimeFactorSolver {
-    private final PrimesSequenceFactory primesSequenceFactory;
-    private final FilterFactory filterFactory;
+    private final Sequence primesSequence;
+    private final Filter filter;
 
-    public Problem3LargestPrimeFactorSolver(PrimesSequenceFactory primesSequenceFactory, FilterFactory filterFactory) {
-        this.primesSequenceFactory = primesSequenceFactory;
-        this.filterFactory = filterFactory;
+    public Problem3LargestPrimeFactorSolver(Sequence primesSequence, Filter filter) {
+        this.primesSequence = primesSequence;
+        this.filter = filter;
     }
 
     public static void main(String[] args) {
-        long result = new Problem3LargestPrimeFactorSolver(new GeneratorBackedPrimesSequenceFactory(), new FilterFactoryImpl()).solve(Long.valueOf(args[0]));
+        Long startsAt = Long.valueOf(args[0]);
+        long result = new Problem3LargestPrimeFactorSolver(new GeneratorBackedSequence(new PrimesNumberGenerator((long) Math.sqrt(startsAt))), new FactorOfFilter(startsAt)).solve(startsAt);
         System.out.println(result);
     }
 
     public long solve(long param) {
-        Sequence primesSequence = primesSequenceFactory.buildDecreasingPrimesSequence((long) Math.sqrt(param));
-        return primesSequence.findFirst(filterFactory.buildFactorOfFilter(param));
+        return primesSequence.findFirst(filter);
     }
 }

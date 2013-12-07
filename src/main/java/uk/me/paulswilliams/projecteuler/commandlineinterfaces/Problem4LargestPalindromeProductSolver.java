@@ -1,27 +1,31 @@
 package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 
-import uk.me.paulswilliams.projecteuler.filters.FilterFactory;
-import uk.me.paulswilliams.projecteuler.filters.FilterFactoryImpl;
-import uk.me.paulswilliams.projecteuler.sequences.factories.GeneratorBackedProductsOfThreeDigitsSequenceFactory;
-import uk.me.paulswilliams.projecteuler.sequences.factories.ProductsOfThreeDigitsSequenceFactory;
+import uk.me.paulswilliams.projecteuler.Filter;
+import uk.me.paulswilliams.projecteuler.Sequence;
+import uk.me.paulswilliams.projecteuler.filters.PalindromeFilter;
+import uk.me.paulswilliams.projecteuler.sequences.GeneratorBackedSequence;
+import uk.me.paulswilliams.projecteuler.sequences.generators.ReverseProductsOfThreeDigitsGenerator;
 
 public class Problem4LargestPalindromeProductSolver {
-    private final ProductsOfThreeDigitsSequenceFactory sequenceFactory;
-    private final FilterFactory filterFactory;
 
-    public Problem4LargestPalindromeProductSolver(ProductsOfThreeDigitsSequenceFactory sequenceFactory, FilterFactory filterFactory) {
 
-        this.sequenceFactory = sequenceFactory;
-        this.filterFactory = filterFactory;
+    private final Sequence sequence;
+    private final Filter filter;
+
+    public Problem4LargestPalindromeProductSolver(Sequence sequence, Filter filter) {
+
+
+        this.sequence = sequence;
+        this.filter = filter;
     }
 
     public long solve() {
-        return sequenceFactory.buildProductsInDecreasingOrder().findFirst(filterFactory.buildPalindromesFilter());
+        return sequence.findFirst(filter);
     }
 
     public static void main(String[] args) {
-        ProductsOfThreeDigitsSequenceFactory sequenceFactory = new GeneratorBackedProductsOfThreeDigitsSequenceFactory();
-        FilterFactory filterFactory = new FilterFactoryImpl();
-        System.out.println(new Problem4LargestPalindromeProductSolver(sequenceFactory, filterFactory).solve());
+        Sequence sequence = new GeneratorBackedSequence(new ReverseProductsOfThreeDigitsGenerator());
+        Filter filter = new PalindromeFilter();
+        System.out.println(new Problem4LargestPalindromeProductSolver(sequence, filter).solve());
     }
 }
