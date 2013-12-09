@@ -1,11 +1,11 @@
-package uk.me.paulswilliams.projecteuler.sequences.generators;
+package uk.me.paulswilliams.projecteuler.sequences;
 
 import java.util.Iterator;
 
-public class PrimesNumberGenerator implements NumberGenerator {
+public class LazyPrimesSequence implements Sequence {
     private final long startsAt;
 
-    public PrimesNumberGenerator(long startsAt) {
+    public LazyPrimesSequence(long startsAt) {
         this.startsAt = startsAt;
     }
 
@@ -16,15 +16,15 @@ public class PrimesNumberGenerator implements NumberGenerator {
 
     @Override
     public Iterator<Long> iterator() {
-        return new PrimesNumberIterator(startsAt);
+        return new PrimesSequenceIterator(startsAt);
     }
 
-    private class PrimesNumberIterator implements Iterator<Long> {
+    private class PrimesSequenceIterator implements Iterator<Long> {
 
         private long next;
         private boolean hasNext;
 
-        public PrimesNumberIterator(long startsAt) {
+        public PrimesSequenceIterator(long startsAt) {
             if (startsAt == 2 || startsAt == 3)
             {
                 hasNext = true;

@@ -1,10 +1,11 @@
-package uk.me.paulswilliams.projecteuler.sequences;
+package uk.me.paulswilliams.projecteuler;
 
 import org.junit.Before;
 import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Filter;
 import uk.me.paulswilliams.projecteuler.NoMatchFoundException;
-import uk.me.paulswilliams.projecteuler.sequences.generators.NumberGenerator;
+import uk.me.paulswilliams.projecteuler.SequenceAnalyserImpl;
+import uk.me.paulswilliams.projecteuler.sequences.Sequence;
 
 import java.util.Iterator;
 
@@ -15,18 +16,19 @@ import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class GeneratorBackedSequenceTest {
+public class SequenceAnalyserImplTest {
 
 
-    private GeneratorBackedSequence sut;
+    private SequenceAnalyserImpl sut;
     private Filter filter;
+    private Sequence sequence;
 
     @Before
     public void setUp() {
-        NumberGenerator numberGenerator = mock(NumberGenerator.class);
+        sequence = mock(Sequence.class);
         Iterator<Long> iterator = mock(Iterator.class);
-        sut = new GeneratorBackedSequence(numberGenerator);
-        when(numberGenerator.iterator()).thenReturn(iterator);
+        sut = new SequenceAnalyserImpl();
+        when(sequence.iterator()).thenReturn(iterator);
         when(iterator.hasNext()).thenReturn(true, true, true, false);
         when(iterator.next()).thenReturn(1L, 2L, 3L);
         filter = mock(Filter.class);
@@ -35,7 +37,7 @@ public class GeneratorBackedSequenceTest {
     @Test
     public void testFindFirstCanReturnMatchingFirstNumber() {
         when(filter.matches(1L)).thenReturn(true);
-        assertThat(sut.findFirst(filter), is(equalTo(1L)));
+        assertThat(sut.findFirst(sequence, filter), is(equalTo(1L)));
     }
 
 
@@ -44,26 +46,26 @@ public class GeneratorBackedSequenceTest {
     public void testFindFirstCanReturnMatchingSecondNumber() {
         when(filter.matches(1L)).thenReturn(false);
         when(filter.matches(2L)).thenReturn(true);
-        assertThat(sut.findFirst(filter), is(equalTo(2L)));
+        assertThat(sut.findFirst(sequence, filter), is(equalTo(2L)));
     }
 
     @Test(expected=NoMatchFoundException.class)
     public void testFindFirstThrowsExceptionWhenNoMatchIsFound()
     {
-        sut.findFirst(filter);
+        sut.findFirst(sequence, filter);
     }
 
     @Test
     public void testSumAllCanSumAllEntries() {
         when(filter.matches(anyLong())).thenReturn(true);
-        assertThat(sut.sumAll(filter), is(equalTo(6L)));
+        assertThat(sut.sumAll(sequence, filter), is(equalTo(6L)));
     }
 
     @Test
     public void testSumAllOnlyAddsMatches() throws Exception {
         when(filter.matches(1L)).thenReturn(false);
         when(filter.matches(2L)).thenReturn(true);
-        assertThat(sut.sumAll(filter), is(equalTo(2L)));
+        assertThat(sut.sumAll(sequence, filter), is(equalTo(2L)));
     }
 
 }

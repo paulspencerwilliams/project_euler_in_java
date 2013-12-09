@@ -1,7 +1,7 @@
-package uk.me.paulswilliams.projecteuler.sequences.generators;
+package uk.me.paulswilliams.projecteuler.sequences;
 
 import org.junit.Test;
-import uk.me.paulswilliams.projecteuler.sequences.generators.WholeNumberGenerator;
+import uk.me.paulswilliams.projecteuler.sequences.LazyWholeNumbersSequence;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class WholeNumbersGeneratorTest {
+public class LazyWholeNumbersGeneratorTest {
 
     @Test
     public void testReturns_empty_For_1 () {
@@ -48,7 +48,7 @@ public class WholeNumbersGeneratorTest {
     private long[] getWholeNumbers(int below) {
 
         ArrayList<Long> additiveList = new ArrayList<Long>();
-        for (long l: new WholeNumberGenerator(below))
+        for (long l: new LazyWholeNumbersSequence(below))
         {
             additiveList.add(l);
         }

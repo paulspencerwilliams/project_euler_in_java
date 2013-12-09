@@ -1,28 +1,28 @@
-package uk.me.paulswilliams.projecteuler.sequences.generators;
+package uk.me.paulswilliams.projecteuler.sequences;
 
 import java.util.Iterator;
 
-public class WholeNumberGenerator  implements NumberGenerator {
+public class LazyWholeNumbersSequence implements Sequence {
     private final long below;
 
-    public WholeNumberGenerator(long below) {
+    public LazyWholeNumbersSequence(long below) {
         this.below = below;
     }
 
     @Override
     public Iterator<Long> iterator() {
-        return new WholeNumberSequenceIterator (below);
+        return new WholeNumbersSequenceIterator (below);
     }
 
     public long getBelow() {
         return below;
     }
 
-    private class WholeNumberSequenceIterator implements Iterator<Long> {
+    private class WholeNumbersSequenceIterator implements Iterator<Long> {
         private final long below;
         private long current = 0;
 
-        public WholeNumberSequenceIterator(long below) {
+        public WholeNumbersSequenceIterator(long below) {
             this.below = below;
         }
 

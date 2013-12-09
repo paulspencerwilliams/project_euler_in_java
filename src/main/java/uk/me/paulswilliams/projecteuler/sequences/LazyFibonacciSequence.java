@@ -1,11 +1,11 @@
-package uk.me.paulswilliams.projecteuler.sequences.generators;
+package uk.me.paulswilliams.projecteuler.sequences;
 
 import java.util.Iterator;
 
-public class FibonacciGenerator implements NumberGenerator {
+public class LazyFibonacciSequence implements Sequence {
     private final long stopsAt;
 
-    public FibonacciGenerator(long stopsAt) {
+    public LazyFibonacciSequence(long stopsAt) {
         this.stopsAt = stopsAt;
     }
 

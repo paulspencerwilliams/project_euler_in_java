@@ -1,6 +1,7 @@
-package uk.me.paulswilliams.projecteuler.sequences.generators;
+package uk.me.paulswilliams.projecteuler.sequences;
 
 import org.junit.Test;
+import uk.me.paulswilliams.projecteuler.sequences.LazyReverseProductsOfThreeDigitsSequence;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +11,7 @@ import java.util.Set;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class ReverseProductsOfThreeDigitsGeneratorTest {
+public class LazyReverseProductsOfThreeDigitsSequenceTest {
 
 
     @Test
@@ -44,7 +45,7 @@ public class ReverseProductsOfThreeDigitsGeneratorTest {
     private long[] getProducts() {
 
         ArrayList<Long> additiveList = new ArrayList<Long>();
-        for (long l: new ReverseProductsOfThreeDigitsGenerator())
+        for (long l: new LazyReverseProductsOfThreeDigitsSequence())
         {
             additiveList.add(l);
         }
