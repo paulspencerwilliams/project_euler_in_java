@@ -3,16 +3,13 @@ package uk.me.paulswilliams.projecteuler.commandlineinterfaces;
 import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.Filter;
 import uk.me.paulswilliams.projecteuler.Sequence;
-import uk.me.paulswilliams.projecteuler.sequences.factories.PrimesSequenceFactory;
 
 import java.io.PrintStream;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class Problem3LargestPrimeFactorSolverTest {
 

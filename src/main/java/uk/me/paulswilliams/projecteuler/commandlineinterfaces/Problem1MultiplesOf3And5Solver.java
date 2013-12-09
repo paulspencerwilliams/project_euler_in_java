@@ -16,14 +16,14 @@ public class Problem1MultiplesOf3And5Solver {
         this.filter = filter;
     }
 
+    public long solve(long below) {
+
+        return sequence.sumAll(filter);
+    }
+
     public static void main(String[] args) {
         long below = Long.parseLong(args[0]);
         Problem1MultiplesOf3And5Solver problemSolver = new Problem1MultiplesOf3And5Solver(new GeneratorBackedSequence(new WholeNumberGenerator(below)), new MultipleOfThreeAndFiveFilter());
         System.out.println(problemSolver.solve(below));
-	}
-
-    public long solve(long below) {
-
-        return sequence.sumAll(filter);
     }
 }

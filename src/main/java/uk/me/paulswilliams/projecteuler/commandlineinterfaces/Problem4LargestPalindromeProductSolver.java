@@ -13,8 +13,6 @@ public class Problem4LargestPalindromeProductSolver {
     private final Filter filter;
 
     public Problem4LargestPalindromeProductSolver(Sequence sequence, Filter filter) {
-
-
         this.sequence = sequence;
         this.filter = filter;
     }
