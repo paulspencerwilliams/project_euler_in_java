@@ -3,10 +3,14 @@ package uk.me.paulswilliams.projecteuler.sequences;
 import java.util.Iterator;
 
 public class LazyWholeNumbersSequence implements Sequence {
-    private final long stopsAt;
+    private final Long stopsAt;
 
     public LazyWholeNumbersSequence(long stopsAt) {
         this.stopsAt = stopsAt;
+    }
+
+    public LazyWholeNumbersSequence() {
+        this.stopsAt = Long.MAX_VALUE;
     }
 
     @Override

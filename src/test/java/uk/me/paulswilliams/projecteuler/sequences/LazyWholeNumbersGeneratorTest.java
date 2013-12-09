@@ -4,6 +4,7 @@ import org.junit.Test;
 import uk.me.paulswilliams.projecteuler.sequences.LazyWholeNumbersSequence;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -43,6 +44,15 @@ public class LazyWholeNumbersGeneratorTest {
     public void testReturns_100_whole_numbers_for_100 () {
         long[] actual = getWholeNumbers(100);
         assertThat(actual.length, is(equalTo(100)));
+    }
+
+    @Test
+    public void testReturns_1000_whole_numbers_for_null() {
+        Iterator<Long> iterator = new LazyWholeNumbersSequence().iterator();
+        for (int i = 0; i < 999; i++) {
+            iterator.next();
+        }
+        assertThat(iterator.next(), is(equalTo(1000L)));
     }
 
     private long[] getWholeNumbers(int stopsAt) {
