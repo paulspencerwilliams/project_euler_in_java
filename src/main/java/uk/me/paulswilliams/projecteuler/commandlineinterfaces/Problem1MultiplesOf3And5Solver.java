@@ -10,6 +10,6 @@ public class Problem1MultiplesOf3And5Solver {
     public static void main(String[] args) {
         long below = Long.parseLong(args[0]);
         SequenceAnalyser analyser = new SequenceAnalyserImpl();
-        System.out.println(analyser.sumAll(new LazyWholeNumbersSequence(below), new MultipleOfThreeAndFiveFilter()));
+        System.out.println(analyser.sumAll(new LazyWholeNumbersSequence(below - 1), new MultipleOfThreeAndFiveFilter()));
     }
 }
