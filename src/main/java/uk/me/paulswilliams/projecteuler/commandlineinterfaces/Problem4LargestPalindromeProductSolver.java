@@ -12,8 +12,9 @@ public class Problem4LargestPalindromeProductSolver {
 
 
     public static void main(String[] args) {
-        SequenceAnalyser sequenceAnalyser = new SequenceAnalyserImpl();
+        LazyReverseProductsOfThreeDigitsSequence sequence = new LazyReverseProductsOfThreeDigitsSequence();
         Filter filter = new PalindromeFilter();
-        System.out.println(sequenceAnalyser.findFirst(new LazyReverseProductsOfThreeDigitsSequence(), filter));
+        SequenceAnalyser sequenceAnalyser = new SequenceAnalyserImpl();
+        System.out.println(sequenceAnalyser.findFirst(sequence, filter));
     }
 }

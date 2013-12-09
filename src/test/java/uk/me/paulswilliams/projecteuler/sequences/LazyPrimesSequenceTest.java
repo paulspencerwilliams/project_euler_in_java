@@ -1,7 +1,6 @@
 package uk.me.paulswilliams.projecteuler.sequences;
 
 import org.junit.Test;
-import uk.me.paulswilliams.projecteuler.sequences.LazyPrimesSequence;
 
 import java.util.ArrayList;
 
@@ -60,23 +59,9 @@ public class LazyPrimesSequenceTest {
         assertThat(actual, is(equalTo(expected)));
     }
 
-
-    private long[] getPrimes(int startAt) {
-
-        ArrayList<Long> additiveList = new ArrayList<Long>();
-        for (long l: new LazyPrimesSequence(startAt))
-        {
-            additiveList.add(l);
-        }
-        return toLongArray(additiveList);
+    private long[] getPrimes(int startsAt) {
+        return SequenceToArrayConverter.getArray(new LazyPrimesSequence(startsAt));
     }
 
-    private long[] toLongArray(ArrayList<Long> arrayList) {
-        long[] array = new long[arrayList.size()];
-        for (int i =0; i < array.length; i++)
-        {
-            array[i] = arrayList.get(i);
-        }
-        return array;
-    }
+
 }

@@ -56,21 +56,7 @@ public class LazyWholeNumbersGeneratorTest {
     }
 
     private long[] getWholeNumbers(int stopsAt) {
-
-        ArrayList<Long> additiveList = new ArrayList<Long>();
-        for (long l: new LazyWholeNumbersSequence(stopsAt))
-        {
-            additiveList.add(l);
-        }
-        return toLongArray(additiveList);
+        return SequenceToArrayConverter.getArray(new LazyWholeNumbersSequence(stopsAt));
     }
 
-    private long[] toLongArray(ArrayList<Long> arrayList) {
-        long[] array = new long[arrayList.size()];
-        for (int i =0; i < array.length; i++)
-        {
-            array[i] = arrayList.get(i);
-        }
-        return array;
-    }
 }

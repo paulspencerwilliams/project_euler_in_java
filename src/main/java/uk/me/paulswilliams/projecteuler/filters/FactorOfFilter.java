@@ -9,10 +9,6 @@ public class FactorOfFilter implements Filter {
         this.factorOf = factorOf;
     }
 
-    public long getFactorOf() {
-        return factorOf;
-    }
-
     @Override
     public boolean matches(long value) {
         return (factorOf % value == 0);

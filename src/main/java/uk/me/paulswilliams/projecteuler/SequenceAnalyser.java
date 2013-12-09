@@ -6,5 +6,5 @@ public interface SequenceAnalyser {
 
     long findFirst(Sequence sequence, Filter filter);
 
-    long sumAll(Sequence sequence, Filter filter);
+    long sum(Sequence sequence, Filter filter);
 }

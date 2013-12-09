@@ -9,11 +9,6 @@ public class LazyPrimesSequence implements Sequence {
         this.startsAt = startsAt;
     }
 
-
-    public long getStartsAt() {
-        return startsAt;
-    }
-
     @Override
     public Iterator<Long> iterator() {
         return new PrimesSequenceIterator(startsAt);
@@ -83,7 +78,7 @@ public class LazyPrimesSequence implements Sequence {
 
         @Override
         public void remove() {
-
+            throw new UnsupportedOperationException("Remove is not valid for a LazyPrimesSequence");
         }
     }
 }

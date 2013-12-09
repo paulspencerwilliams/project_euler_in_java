@@ -18,10 +18,6 @@ public class LazyWholeNumbersSequence implements Sequence {
         return new WholeNumbersSequenceIterator (stopsAt);
     }
 
-    public long getStopsAt() {
-        return stopsAt;
-    }
-
     private class WholeNumbersSequenceIterator implements Iterator<Long> {
         private final long stopsAt;
         private long current = 0;
@@ -43,7 +39,7 @@ public class LazyWholeNumbersSequence implements Sequence {
 
         @Override
         public void remove() {
-
+            throw new UnsupportedOperationException("Remove is not valid for a LazyWholeNumbersSequence");
         }
     }
 }

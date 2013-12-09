@@ -10,7 +10,8 @@ public class Problem3LargestPrimeFactorSolver {
     public static void main(String[] args) {
         Long startsAt = Long.valueOf(args[0]);
         SequenceAnalyser analyser = new SequenceAnalyserImpl();
-        System.out.println(analyser.findFirst(new LazyPrimesSequence((long) Math.sqrt(startsAt)), new FactorOfFilter(startsAt) ));
+        LazyPrimesSequence sequence = new LazyPrimesSequence((long) Math.sqrt(startsAt));
+        System.out.println(analyser.findFirst(sequence, new FactorOfFilter(startsAt)));
     }
 
 }

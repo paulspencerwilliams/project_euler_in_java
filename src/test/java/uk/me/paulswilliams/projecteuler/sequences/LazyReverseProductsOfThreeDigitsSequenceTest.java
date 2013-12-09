@@ -1,15 +1,16 @@
 package uk.me.paulswilliams.projecteuler.sequences;
 
 import org.junit.Test;
-import uk.me.paulswilliams.projecteuler.sequences.LazyReverseProductsOfThreeDigitsSequence;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.hasItemInArray;
+import static org.hamcrest.Matchers.lessThan;
+
 
 public class LazyReverseProductsOfThreeDigitsSequenceTest {
 
@@ -24,42 +25,49 @@ public class LazyReverseProductsOfThreeDigitsSequenceTest {
         }
     }
 
+    @Test
     public void testAllProductsAreIncluded ()
     {
-        Set<Long> products = getProductsAsSet();
+        long[] array = SequenceToArrayConverter.getArray(new LazyReverseProductsOfThreeDigitsSequence());
+
+
+        Long[] arrayAsLongArray = new Long[array.length];
+        for (int i = 0; i < array.length; i++)
+        {
+            arrayAsLongArray[i] = array[i];
+        }
+
         for (int i = 999; i >= 100; i--)
         {
-            for (int j = 999; j >= 100; j--)
+            for (int j = 999; j >= 999; j--)
             {
-                long product = i * j;
-                assertThat(products, contains(product));
+                long k = i * j;
+                assertThat(arrayAsLongArray, hasItemInArray(equalTo(k)));
             }
         }
+
+    }
+
+    private boolean doesArrayContainValue(long[] array, long k) {
+        for (long l : array)
+        {
+            if (l == k)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private Set<Long> getProductsAsSet() {
         return new HashSet(Arrays.asList(getProducts()));
     }
 
-
     private long[] getProducts() {
-
-        ArrayList<Long> additiveList = new ArrayList<Long>();
-        for (long l: new LazyReverseProductsOfThreeDigitsSequence())
-        {
-            additiveList.add(l);
-        }
-        return toLongArray(additiveList);
+        return SequenceToArrayConverter.getArray(new LazyReverseProductsOfThreeDigitsSequence());
     }
 
-    private long[] toLongArray(ArrayList<Long> arrayList) {
-        long[] array = new long[arrayList.size()];
-        for (int i =0; i < array.length; i++)
-        {
-            array[i] = arrayList.get(i);
-        }
-        return array;
-    }
+
 
 
 }

@@ -1,8 +1,5 @@
 package uk.me.paulswilliams.projecteuler;
 
-import uk.me.paulswilliams.projecteuler.Filter;
-import uk.me.paulswilliams.projecteuler.NoMatchFoundException;
-import uk.me.paulswilliams.projecteuler.SequenceAnalyser;
 import uk.me.paulswilliams.projecteuler.sequences.Sequence;
 
 public class SequenceAnalyserImpl implements SequenceAnalyser {
@@ -20,7 +17,7 @@ public class SequenceAnalyserImpl implements SequenceAnalyser {
     }
 
     @Override
-    public long sumAll(Sequence sequence, Filter filter) {
+    public long sum(Sequence sequence, Filter filter) {
         long sum = 0;
         for (long l: sequence)
         {

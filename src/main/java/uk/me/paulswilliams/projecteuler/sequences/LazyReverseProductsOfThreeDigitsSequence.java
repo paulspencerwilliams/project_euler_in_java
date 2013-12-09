@@ -19,6 +19,7 @@ public class LazyReverseProductsOfThreeDigitsSequence implements Sequence {
             }
         }
     }
+
     @Override
     public Iterator<Long> iterator() {
         return products.descendingIterator();

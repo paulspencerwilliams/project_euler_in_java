@@ -2,9 +2,6 @@ package uk.me.paulswilliams.projecteuler;
 
 import org.junit.Before;
 import org.junit.Test;
-import uk.me.paulswilliams.projecteuler.Filter;
-import uk.me.paulswilliams.projecteuler.NoMatchFoundException;
-import uk.me.paulswilliams.projecteuler.SequenceAnalyserImpl;
 import uk.me.paulswilliams.projecteuler.sequences.Sequence;
 
 import java.util.Iterator;
@@ -58,14 +55,14 @@ public class SequenceAnalyserImplTest {
     @Test
     public void testSumAllCanSumAllEntries() {
         when(filter.matches(anyLong())).thenReturn(true);
-        assertThat(sut.sumAll(sequence, filter), is(equalTo(6L)));
+        assertThat(sut.sum(sequence, filter), is(equalTo(6L)));
     }
 
     @Test
     public void testSumAllOnlyAddsMatches() throws Exception {
         when(filter.matches(1L)).thenReturn(false);
         when(filter.matches(2L)).thenReturn(true);
-        assertThat(sut.sumAll(sequence, filter), is(equalTo(2L)));
+        assertThat(sut.sum(sequence, filter), is(equalTo(2L)));
     }
 
 }
