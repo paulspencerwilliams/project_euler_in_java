@@ -2,78 +2,48 @@ package uk.me.paulswilliams.projecteuler.sequences;
 
 import java.util.Iterator;
 
-public class LazyPrimesSequence implements Sequence {
-    private final long startsAt;
-
-    public LazyPrimesSequence(long startsAt) {
-        this.startsAt = startsAt;
+public class LazyPrimesSequence implements Sequence{
+    public LazyPrimesSequence() {
     }
 
     @Override
     public Iterator<Long> iterator() {
-        return new PrimesSequenceIterator(startsAt);
+        return new LazyPrimesIterator();
     }
 
-    private class PrimesSequenceIterator implements Iterator<Long> {
-
-        private long next;
-        private boolean hasNext;
-
-        public PrimesSequenceIterator(long startsAt) {
-            if (startsAt == 2 || startsAt == 3)
-            {
-                hasNext = true;
-                next = startsAt;
-            }
-            else if (startsAt > 3 )
-            {
-                hasNext = true;
-                if (isPrime(startsAt))
-                {
-                    next = startsAt;
-                }
-                else
-                {
-                    next = findNext(startsAt);
-                }
-
-            }
-        }
+    private class LazyPrimesIterator implements Iterator<Long> {
+        private long previousPrime = 0;
 
         @Override
         public boolean hasNext() {
-            return hasNext;
+            return true;
         }
 
         @Override
         public Long next() {
-            long numberToReturn = next;
-            if (numberToReturn == 2)
+
+            Long possiblePrime;
+            if (previousPrime == 0)
             {
-                hasNext = false;
+                previousPrime = 2L;
+                return 2L;
             }
-            next = findNext(next);
-            return numberToReturn;
+
+            possiblePrime = previousPrime + 1;
+            while (isNotPrime(possiblePrime))
+            {
+                possiblePrime++;
+            }
+            previousPrime = possiblePrime;
+            return possiblePrime;
         }
 
-        private long findNext(long basedOn) {
-            for (long i = basedOn -1; i > 2; i--)
-            {
-                if (isPrime(i)) { return i;}
+        private boolean isNotPrime(Long possiblePrime) {
+            for (int i=2; i<possiblePrime; i++){
+                if (possiblePrime%i == 0)
+                    return true;
             }
-            return 2L;
-        }
-
-        private boolean isPrime(long possiblePrime) {
-            if (possiblePrime == 2) { return true; }
-            for (long i = 2; i <= Math.sqrt(possiblePrime); i++)
-            {
-                if (possiblePrime % i == 0)
-                {
-                    return false;
-                }
-            }
-            return true;
+            return false;
         }
 
         @Override
